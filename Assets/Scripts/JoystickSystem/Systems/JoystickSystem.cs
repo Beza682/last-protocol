@@ -41,6 +41,9 @@ sealed class JoystickSystem : EcsUguiCallbackSystem, IEcsInitSystem
 
     public void Init(IEcsSystems systems)
     {
+        Debug.Log("JoystickSystem start");
+
+
         EcsWorld world = systems.GetWorld();
 
         _enableFilter = world.Filter<MainJoystickComponent>().Inc<EnableTag>().Exc<DisableTag>().End();
@@ -63,6 +66,8 @@ sealed class JoystickSystem : EcsUguiCallbackSystem, IEcsInitSystem
     [Preserve, EcsUguiDragStartEvent("button_start-drag")]
     private void DragStart(in EcsUguiDragStartEvent evt)
     {
+        Debug.Log("DragStart");
+
         if (_lastId == -2)
         {
             _lastId = evt.PointerId;
@@ -87,6 +92,8 @@ sealed class JoystickSystem : EcsUguiCallbackSystem, IEcsInitSystem
     [Preserve, EcsUguiDragMoveEvent("button_move-drag")]
     private void DragMove(in EcsUguiDragMoveEvent evt)
     {
+        Debug.Log("DragMove");
+
         if (evt.PointerId == _lastId)
         {
             foreach (var enable in _enableFilter)
@@ -109,6 +116,9 @@ sealed class JoystickSystem : EcsUguiCallbackSystem, IEcsInitSystem
     [Preserve, EcsUguiDragEndEvent("button_end-drag")]
     private void DragEnd(ref EcsUguiDragEndEvent evt)
     {
+        Debug.Log("DragEnd");
+
+
         if (evt.PointerId == _lastId)
         {
             _lastId = -2;

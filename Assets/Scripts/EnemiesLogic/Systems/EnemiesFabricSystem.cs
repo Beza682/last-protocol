@@ -33,7 +33,7 @@ sealed class EnemiesFabricSystem : IEcsInitSystem, IEcsRunSystem
         {
             _enemyPool.Pool.Get();
 
-            _timer = 0.2f;
+            _timer = 1.5f;
         }
     }
 

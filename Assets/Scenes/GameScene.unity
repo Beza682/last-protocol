@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1738fb8c516dc4faf4349180590297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fpsCounterComtext: {fileID: -6920883339211184675, guid: 8a29545a8e2be164a9131bf5a23ce2a4, type: 3}
   _joystick: {fileID: 829345349}
   _joystickConfig: {fileID: 11400000, guid: d365f49410109b84e807cb1f94be295b, type: 2}
   _containerNPC: {fileID: 1887890466}

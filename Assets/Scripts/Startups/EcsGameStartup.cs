@@ -12,6 +12,7 @@ public sealed class EcsGameStartup : MonoBehaviour
     private EcsSystems _fixSystems;
     private EcsSystems _lateSystems;
 
+    [SerializeField] private FPSCounterComtext _fpsCounterComtext;
     [SerializeField] private JoystickSceneContext _joystick;
     [SerializeField] private JoystickConfig _joystickConfig;
     [SerializeField] private Transform _containerNPC;
@@ -78,6 +79,7 @@ public sealed class EcsGameStartup : MonoBehaviour
             .Add(new JoystickSystem())
             //.Add(new TowerRotateSystem())
             .Add(new GunSystem())
+            .Add(new FPSSystem())
             ;
     }
 
@@ -96,6 +98,7 @@ public sealed class EcsGameStartup : MonoBehaviour
         _systems
             .Inject(_containerNPC)
             .Inject(_enemiesDictionary)
+            .Inject(_fpsCounterComtext)
             .Inject(_joystick)
             .Inject(_joystickConfig)
             ;

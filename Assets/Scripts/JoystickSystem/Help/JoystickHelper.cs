@@ -9,7 +9,7 @@ public static class JoystickHelper
         if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
         {
 #if UNITY_IOS || UNITY_ANDROID && !UNITY_EDITOR
-            Return = Input.GetTouch(touchID).position;
+            result = Input.GetTouch(touchID).position;
 #else
             result = Input.mousePosition;
 #endif
